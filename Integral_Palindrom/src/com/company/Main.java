@@ -5,13 +5,13 @@ public class Main {
     public static void main(String[] args) {
         //--- INTEGRAL   ----------------------
 
-        double y = Math.sin(Math.PI);
-        System.out.println(y);
+        int n = 10;
+        double a = 0;
+        double b = Math.PI;
+        System.out.println("Результат вычисления интеграла: "+ CalcIntegral(a,b,n));
 
-        y = -(Math.cos(Math.PI)-Math.cos(0));
-        System.out.println(y);
 
-        //-----------------------------------------------
+
 
 
         //--- PALINDROME   ----------------------
@@ -37,5 +37,23 @@ public class Main {
 
         if (str3.equals(str4)) System.out.println("Палиндром");
 
+    }
+
+    public static double CalcIntegral(double a, double b, int n)
+    {
+
+        double result = 0;
+        double h = (b - a) / n;
+
+        for(int i = 0; i < n; i++)
+        {
+            result += InFunction(a + h*(i + 0.5));
+        }
+        result *= h;
+        return result;
+    }
+    public static double InFunction(double x) //Подинтегральная функция
+    {
+        return Math.sin(x);
     }
 }
