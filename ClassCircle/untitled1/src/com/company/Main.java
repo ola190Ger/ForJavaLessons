@@ -13,6 +13,14 @@ public class Main {
         System.out.println("площадь сегмента Sseg= "+myCircle.getSegmentArea(1));
         System.out.println("высота сегмента Hseg= "+myCircle.getSegmentHeight(1));
 
+        System.out.println(myCircle.toXML());
+        System.out.println(myCircle.toJSON());
+        System.out.println(myCircle.toConsole());
+
+        Round myRound = new Round(12);
+        System.out.println(myRound.getSquare());
+        System.out.println(myRound.toXML());
+
         //05.05.2020
 //
 //        int length = 7;
@@ -35,7 +43,8 @@ public class Main {
 //        System.out.println(hisGarden.equals(myGarden));
 //        System.out.println(myGarden.hashCode());
 
-
+//            Triangle first = new Triangle(2,2,4);
+//            Triangle second = TriangleFactory.create(10,2,16);
 
 
     }

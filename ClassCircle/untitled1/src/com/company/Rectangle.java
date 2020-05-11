@@ -3,7 +3,7 @@ package com.company;
 
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle implements IGeometry, IInfo{
     private int length;
     private int widths;
 
@@ -44,6 +44,28 @@ public class Rectangle {
         return "Rectangle {"+length+","+widths+"}";
     }
 
+    //TODO:
+    public String toXML(){
+        return "<Rectangle>"+
+                "<length>" + getLength()+  "</length>"+
+                "<widths>"+ getWidths()+ "</widths>"+
+                "</Rectangle>";
+    }
+
+    //TODO:
+    public String toJSON(){
+        return  "{"+
+                "\"length:\" " + "\""+getLength()+"\""+",\n"+
+                "\"widths:\" " + "\""+getWidths()+"\""+";\n"+
+                "}";
+    }
+
+    //TODO:
+    public String toConsole()
+    {
+        return "Rectangle(length "+getLength()+", widths "+getWidths()+");";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,5 +78,15 @@ public class Rectangle {
     @Override
     public int hashCode() {
         return Objects.hash(getLength(), getWidths());
+    }
+
+    @Override
+    public double getAllLengths() {
+        return this.getPerimeter();
+    }
+
+    @Override
+    public double getSquare() {
+        return this.getArea();
     }
 }

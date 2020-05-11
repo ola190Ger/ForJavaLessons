@@ -2,43 +2,51 @@ package com.company;
 
 import java.util.Objects;
 
-public class Circle {
+public class Circle implements IGeometry, IInfo{
     private double R;
 
-    public Circle(){
-
-    }
-    public double getR() {
-        return R;
-    }
-
-    public void setR(int r) {
-        R = r;
-    }
-
+    public Circle(){    }
     public Circle(int r) {
         R = r;
     }
 
+
+    public double getR() {
+        return R;
+    }
+    public void setR(int r) {
+        R = r;
+    }
+
+
     public double getDiameter(){//вернуть диаметр
-        return 2*R;
+        return 2*getR();
     }
 
     public double getCircumference(){//вернуть длину окружности
-        return 2*3.14*R;
+        return 2*Math.PI*getR();
     }
 
     public double getChordLength(double a){//вернуть длину хорды
-        return 2*Math.sin(getArcLength(a)/2/R)*R;
+        return 2*Math.sin(getArcLength(a)/2/getR())*getR();
     }
-     public double getArcLength(double a){//вернуть длину дуги
-        return a*R;
-     }
-     public double getSegmentArea(double a){//вернуть площадь сегмента
-        return (a-Math.sin(a))*R*R/2;
-     }
+
+    public double getArcLength(double a){//вернуть длину дуги
+        return a*getR();
+    }
+
+    public double getSegmentArea(double a){//вернуть площадь сегмента
+        return (a-Math.sin(a))*getR()*getR()/2;
+    }
     public double getSegmentHeight(double a){//вернуть высота сегмента
-        return R*(1-Math.cos(a/2));
+        return getR()*(1-Math.cos(a/2));
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "R=" + R +
+                '}';
     }
 
     @Override
@@ -52,5 +60,35 @@ public class Circle {
     @Override
     public int hashCode() {
         return Objects.hash(getR());
+    }
+
+
+    public String toXML(){
+        return "<Circle>"+
+                "<radius>" + getR()+  "</radius>"+
+                "</Circle>";
+    }
+
+
+    public String toJSON(){
+        return  "{"+
+                "\"R:\" " + "\""+getR()+"\""+",\n"+
+                "}";
+    }
+
+
+    public String toConsole()
+    {
+        return "Round (R: "+getR()+");";
+    }
+
+    @Override
+    public double getAllLengths() {
+        return getCircumference();
+    }
+
+    @Override
+    public double getSquare() {
+        return 0;
     }
 }
