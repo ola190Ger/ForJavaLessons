@@ -1,6 +1,6 @@
 package com.company;
 
-public class Box {
+public abstract class Box {
     private int length;
     private int Width;
     private int height;
@@ -52,6 +52,8 @@ public class Box {
     {
         return 0;
     }
+
+    public abstract int getEdgeLength();
 
     @Override
     public String toString() {

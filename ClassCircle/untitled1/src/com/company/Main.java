@@ -46,6 +46,10 @@ public class Main {
 //            Triangle first = new Triangle(2,2,4);
 //            Triangle second = TriangleFactory.create(10,2,16);
 
+        // 12.05.2020
+
+        IGeometry triangle1= AbstractFactory.create(2,3,"triangle");
+
 
     }
 }

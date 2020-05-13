@@ -64,4 +64,9 @@ public class Tara extends Box{
         super.setLength(length);
     }
 
+    @Override
+    public int getEdgeLength() {
+        return 2*(this.getHeight()+this.getLength()+this.getWidth());
+    }
+
 }
