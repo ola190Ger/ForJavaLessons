@@ -48,7 +48,7 @@ public class Main {
 
         // 12.05.2020
 
-        IGeometry triangle1= AbstractFactory.create(2,3,"triangle");
+        IGeometry triangle1= AbstractFactory.create(2,3,ShapeType.Triangle);
 
 
     }
