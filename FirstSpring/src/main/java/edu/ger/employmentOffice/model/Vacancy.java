@@ -8,20 +8,26 @@ import java.util.Objects;
 public class Vacancy {
     private String id;
     private String name;
-    private String vacancyName;
-    private String description;
-    private String requirement;
-    private String responsibility;
-    private String conditions;
-    private Integer salary;
-    private Boolean statusVacancy;
+//    private String vacancyName;
+//    private String description;
+//    private String requirement;
+//    private String responsibility;
+//    private String conditions;
+//    private Integer salary;
+//    private Boolean statusVacancy;
 
     private Category category;
-    private User user;
+    //private User user;
 
 
 
     public Vacancy() {
+    }
+
+    public Vacancy(String id, String name, Category category) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
     }
 
     public Vacancy(String id, String name) {
@@ -46,12 +52,16 @@ public class Vacancy {
         this.name = name;
     }
 
+    public Category getCategory() {return category;}
+
+    public void setCategory(Category category) {this.category = category;}
+
     @Override
     public String toString() {
         return "Vacancy{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", category=" + category +
+                ", category=" + category.getName() +
                 '}';
     }
 

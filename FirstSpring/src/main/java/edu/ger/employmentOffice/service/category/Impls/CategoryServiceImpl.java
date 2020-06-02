@@ -20,36 +20,22 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     public Category create(Category category) {
-        return null;
-        //return dao.add(category)?category:null;
+        return dao.create(category);
     }
 
     @Override
     public Category update(Category category) {
-        return null;
-
-//        Category res = dao.getAll().stream().filter(category1 -> category.getId().equals(category1.getId())).findFirst()
-//                .orElse(null);
-//        if (res==null){
-//            Category tmp = new Category(category.getId(), category.getName(), category.getDesc());
-//            return dao.getAll().add(tmp)?tmp:null;
-//        }
-//        int indexRes= dao.getAll().indexOf(res);
-//        res.setName(category.getName());
-//        return  dao.getAll().set(indexRes, res);
+        return dao.update(category);
     }
 
     @Override
     public Category get(String id) {
-        return dao.getAll().stream().filter(category -> id.equals(category.getId())).findFirst().orElse(null);
+        return dao.get(id);
     }
 
     @Override
     public Category delete(String id) {
-        return null;
-//        Category res=dao.getAll().stream().filter(category -> id.equals(category.getId())).findFirst().get();
-//        dao.getAll().remove(res);
-//        return dao.getAll().remove(res)?res:null;
+        return dao.delete(id);
     }
 
     @Override
