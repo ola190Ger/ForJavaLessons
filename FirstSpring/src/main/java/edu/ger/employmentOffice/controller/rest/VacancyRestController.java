@@ -1,4 +1,4 @@
-package edu.ger.employmentOffice.сontroller;
+package edu.ger.employmentOffice.controller.rest;
 /*
 * 1 controller implemented
 *

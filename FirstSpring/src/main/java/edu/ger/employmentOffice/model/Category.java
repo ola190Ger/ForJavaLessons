@@ -2,12 +2,15 @@ package edu.ger.employmentOffice.model;
 /*
 * different job sphere
 * */
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Category {
     private String id;
     private String name;
     private String desc;
+    private LocalDateTime created_at;
+    private LocalDateTime update_at;
 
     public Category() {
     }
@@ -42,13 +45,23 @@ public class Category {
         this.desc = desc;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdate_at() {
+        return update_at;
+    }
+
+    public void setUpdate_at(LocalDateTime update_at) {
+        this.update_at = update_at;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -61,5 +74,16 @@ public class Category {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", created_at=" + created_at +
+                ", update_at=" + update_at +
+                '}';
     }
 }

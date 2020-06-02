@@ -1,40 +1,39 @@
-package edu.ger.employmentOffice.сontroller;
-/*
-* controller for jobs category
-* request tested "Postman"
-* */
+package edu.ger.employmentOffice.controller.web;
 
 import edu.ger.employmentOffice.model.Category;
 import edu.ger.employmentOffice.service.category.Interfaces.ICategoryService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
+
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/category")
-@Api(value = "CategoryControllerAPI", produces = MediaType.APPLICATION_JSON_VALUE)
-public class CategoryRestController {
-
+@RequestMapping("/web/category")
+@Controller
+public class CategoryWebController {
     @Autowired
     ICategoryService service;
 
-    //get all in base
-    @GetMapping("/list")
-    @ApiResponses(value = {@ApiResponse(code=200, message = "OK", response=Category.class)})
-    List<Category> getCategories(){
-        return service.getAll();
+    //get all
+    @GetMapping("/get/list")
+    String getCategories(Model model){
+        List<Category> categories = service.getAll();
+        model.addAttribute("categories", categories);
+        categories.stream().forEach(item -> System.out.println(item));
+        //write files name where will get categories
+        return "categoryGetList";
     }
+
+
 
 
     //get one which have id
     @GetMapping("/get/{id}")
-    @ApiResponses(value = {@ApiResponse(code=200, message = "OK", response=Category.class)})
     Category get(@PathVariable(value="id") String id){
         return service.get(id);
     }
